@@ -7,7 +7,7 @@ main(){
     char data[20], hora[10], letra;
     int nota;
 
-    text1 = fopen("spotify.csv", "r");
+    text1 = fopen("Planilha Dados Filtrados.csv", "r");
 
     if(text1 == NULL){
         printf("Erro!");
