@@ -1,83 +1,83 @@
+/* UNIVERSIDADE DE BRASILIA - FGA 
+GRUPO G- SPOTIFY/SelectionSort - EDA
+Alunos: Mayara Alves de Oliveira
+Vinicius de Oliveira Santos
+Dara Maria Barbosa de Sousa
+Paulo Vinicius Pinheiro do Nascimento
+Arthur D'Assumpção */
+
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h>     //BIBLIOTECAS
 #include <string.h>
 
+struct AvaliacaoSpotify
+{
+    int nota;
+    char ano[8];
+};
+
+typedef struct AvaliacaoSpotify avaliacao;
+
+
 int main(){
+    
 
-    FILE *text1,*text2;
-    char ano[8], mes[3],dia[4],hora[15],letra;
-    char mes1[2],mes2[2],mes3[2],mes4[2],mes5[2],mes6[2],mes7[2];
-    int nota,mat[7][4000];
-    int count=0,i,j;
-    int abc = 9;
+//DECLARANDO AS VARIAVEIS
+    FILE *arquivo1,*arquivo3;
+    char ano[8],dia[4],hora[15],letra,nota;
+    avaliacao janeiro [4000];
+    int i;
+    int contador = 0;
+    char avaliacao_ano[8];
+    int avaliacao_nota;
 
-    mes1[2] = "01";
-    mes2[2] = "02";
-    mes3[2] = "03";
-    mes4[2] = "04";
-    mes5[2] = "05";
-    mes6[2] = "06";
-    mes7[2] = "07";
+    for(i=0;i<4000;i++)
+    
 
-    for(i=0;1<7;i++){
-        for(j=0;j<4000;j++){
-            mat[i][j] = 0;
-        }
-    }
 
-    text1 = fopen("Planilha Dados Filtrados.csv", "r");
-    text2 = fopen("copia.csv","w");
-  
-    if(text1 == NULL && text2 == NULL){
-        printf("Erro!");
+//ABRINDO OS ARQUIVOS    
+    arquivo1 = fopen("Planilha Dados Filtrados.csv", "r");
+ //   arquivo2 = fopen("Dados.csv","w");
+    arquivo3 = fopen("AvaliacaoJaneiro.csv","w");
+
+//VERIFICANDO SE OS ARQUIVOS FORAM ABERTOS CORRETAMENTE
+    if(arquivo1 == NULL ){
+        printf("Não foi possivel abrir arquivo!");
         system("pause");
         exit(0);
     }
-
+//COPIANDO OS DADOS NECESSARIOS DA PLANILHA DE DADOS FILTRADOS PARA PLANILHA COPIA
     do{
-        fscanf (text1, "%c", &letra);
-        fprintf(text2,"%c", letra);
+        fscanf (arquivo1, "%c", &letra);
+ //       fprintf(arquivo2,"%c", letra);
     }while (letra != '\n');
 
-    while( fscanf (text1, "%5s %2s %3s %9s %d", ano,mes,dia,hora,&nota) !=  EOF){
-        abc = strcmp(mes,mes7);
-        if(abc < 1){
-            printf("ola");
+    while( fscanf (arquivo1, "%7s %3s %9s %c", ano,dia,hora,&nota) !=  EOF){
+        strcpy(janeiro[contador].ano, ano);
+        janeiro[contador].nota = nota;
+    while(fscanf(arquivo3, "%s %d", avaliacao_ano, avaliacao_nota )!= EOF) {
+        if(avaliacao_ano == "01-20022"){
+            janeiro[4000].nota = avaliacao_nota;
         }
-
-        /*if(strcmp(mes,mes6)){
-            count = nota;
-        }
-        if(strcmp(mes,mes5)){
-            count = nota;
-        }
-        if(strcmp(mes,mes4)){
-            count = nota;
-        }
-        if(strcmp(mes,mes3)){
-            count = nota;
-        }
-        if(strcmp(mes,mes2)){
-            count = nota;
-        }
-        if(strcmp(mes,mes1)){
-            count = nota;
-        }*/
-        //fprintf(text2, "mes: %s,nota:%d\n", mes,nota);
     }
 
-    /*for(j=0;j<4000;j++){
-        fprintf(text2, "%d\n", mat[0][j]);
-    }*/
-
-    //fprintf(text2, "%d\n", mat[0][0]);
+        contador++;
+    }
+  system("pause");
 
 
 
-    system("pause");
-    fclose(text1);
-    fclose(text2);
+//FECHANDO ARQUIVOS 
+    fclose(arquivo1);
+//    fclose(arquivo2);
+    fclose(arquivo3);
 
+printf("resultados: \n");
+for(i=0; i<4000; i++)
+  if(janeiro[i].ano == "01-2022"){
+    printf("%s %d", janeiro[i].ano,janeiro[i].nota);
+  }
 
     return 0;
 }
