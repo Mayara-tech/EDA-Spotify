@@ -10,7 +10,6 @@ int main(){
     int notas[7][13803],i,j;
     int nota,mes;
 
-    strcpy(m7, "07");
     c1=c2=c3=c4=c5=c6=c7=0;
 
     for(i=0;i<7;i++){
