@@ -5,7 +5,7 @@
 int main(){
 
     FILE *text1,*text2;
-    char ano[8],dia[4],hora[15],letra,hifen,m7[2];
+    char ano[8],dia[4],hora[15],letra,hifen;
     int c1,c2,c3,c4,c5,c6,c7;
     int notas[7][13803],i,j;
     int nota,mes;
@@ -64,12 +64,26 @@ int main(){
     }
 
 
-    for(i=0;i<7;i++){
-        for(j=0;j<13803;j++){
-            if(notas[i][j]!=0){
-                fprintf(text2,"%d\n",notas[i][j]);
-            }
-        }
+    for(i=0;i<c7;i++){
+        fprintf(text2,"%d\n",notas[6][i]);
+    }
+    for(i=0;i<c6;i++){
+        fprintf(text2,"%d\n",notas[5][i]);
+    }
+    for(i=0;i<c5;i++){
+        fprintf(text2,"%d\n",notas[4][i]);
+    }
+    for(i=0;i<c4;i++){
+        fprintf(text2,"%d\n",notas[3][i]);
+    }
+    for(i=0;i<c3;i++){
+        fprintf(text2,"%d\n",notas[2][i]);
+    }
+    for(i=0;i<c2;i++){
+        fprintf(text2,"%d\n",notas[1][i]);
+    }
+    for(i=0;i<c1;i++){
+        fprintf(text2,"%d\n",notas[0][i]);
     }
 
 
