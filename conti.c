@@ -15,6 +15,7 @@ int main(){
     float c[]={0,0,0,0,0,0,0};
     float soma[]={0,0,0,0,0,0,0};
     float media[]={0,0,0,0,0,0,0};
+    float mediames[]={0,0,0,0,0,0,0};
 
     text1 = fopen("Planilha Dados Filtrados.csv", "r");
     text2 = fopen("copia.csv","w");
@@ -93,6 +94,10 @@ int main(){
         media[i] = soma[i]/c[i];
     }
 
+    for(i=0;i<7;i++){
+        mediames[i] = media[i];
+    }
+
 
     selectionSort(c7,c[6]);
     selectionSort(c6,c[5]);
@@ -103,6 +108,30 @@ int main(){
     selectionSort(c1,c[0]);
 
     selectionSort(media,7);
+
+    for(i=0;i<7;i++){
+        if(mediames[0] == media[i]){
+            fprintf(text2,"2022_01: %.2f\n",media[i]);
+        }
+        if(mediames[1] == media[i]){
+            fprintf(text2,"2022_02: %.2f\n",media[i]);
+        }
+        if(mediames[2] == media[i]){
+            fprintf(text2,"2022_03: %.2f\n",media[i]);
+        }
+        if(mediames[3] == media[i]){
+            fprintf(text2,"2022_04: %.2f\n",media[i]);
+        }
+        if(mediames[4] == media[i]){
+            fprintf(text2,"2022_05: %.2f\n",media[i]);
+        }
+        if(mediames[5] == media[i]){
+            fprintf(text2,"2022_06: %.2f\n",media[i]);
+        }
+        if(mediames[6] == media[i]){
+            fprintf(text2,"2022_07: %.2f\n",media[i]);
+        }
+    }
 
     /*for(i=0;i<c[6];i++){
         fprintf(text2,"mes7: %d\n",c7[i]);
@@ -128,9 +157,9 @@ int main(){
 
 
 
-    for(i=0;i<7;i++){
+    /*for(i=0;i<7;i++){
         fprintf(text2,"2022_0%d,%.2f\n",i+1,media[i]);
-    }
+    }*/
 
 
     system("pause");
