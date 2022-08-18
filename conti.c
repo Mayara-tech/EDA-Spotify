@@ -111,25 +111,25 @@ int main(){
 
     for(i=0;i<7;i++){
         if(mediames[0] == media[i]){
-            fprintf(text2,"2022_01: %.2f\n",media[i]);
+            fprintf(text2,"2022_01,%.2f\n",media[i]);
         }
         if(mediames[1] == media[i]){
-            fprintf(text2,"2022_02: %.2f\n",media[i]);
+            fprintf(text2,"2022_02,%.2f\n",media[i]);
         }
         if(mediames[2] == media[i]){
-            fprintf(text2,"2022_03: %.2f\n",media[i]);
+            fprintf(text2,"2022_03,%.2f\n",media[i]);
         }
         if(mediames[3] == media[i]){
-            fprintf(text2,"2022_04: %.2f\n",media[i]);
+            fprintf(text2,"2022_04,%.2f\n",media[i]);
         }
         if(mediames[4] == media[i]){
-            fprintf(text2,"2022_05: %.2f\n",media[i]);
+            fprintf(text2,"2022_05,%.2f\n",media[i]);
         }
         if(mediames[5] == media[i]){
-            fprintf(text2,"2022_06: %.2f\n",media[i]);
+            fprintf(text2,"2022_06,%.2f\n",media[i]);
         }
         if(mediames[6] == media[i]){
-            fprintf(text2,"2022_07: %.2f\n",media[i]);
+            fprintf(text2,"2022_07,%.2f\n",media[i]);
         }
     }
 
