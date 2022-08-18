@@ -2,24 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+void selectionSort(int vet[], int tam);
+int smallerIndex(int vet[], int tam, int ini);
+
 int main(){
 
     FILE *text1,*text2;
     char ano[8],dia[4],hora[15],letra,hifen;
-    int c1,c2,c3,c4,c5,c6,c7;
-    int notas[7][13803],i,j;
+    int c1[5231],c2[7458],c3[8023],c4[13803],c5[10922],c6[12257],c7[3900];
+    int i,j,posic;
     int nota,mes;
-
-    c1=c2=c3=c4=c5=c6=c7=0;
-
-    for(i=0;i<7;i++){
-        for(j=0;j<13803;j++){
-            notas[i][j] = 0;
-        }
-    }
+    int c[]={0,0,0,0,0,0,0};
 
     text1 = fopen("Planilha Dados Filtrados.csv", "r");
-    text2 = fopen("copias.csv","w");
+    text2 = fopen("copia.csv","w");
   
     if(text1 == NULL && text2 == NULL){
         printf("Erro!");
@@ -34,56 +30,70 @@ int main(){
 
     while( fscanf (text1, "%4s %c %d %3s %9s %d", ano,&hifen,&mes,dia,hora,&nota) !=  EOF){
         if(mes == 7){
-            notas[6][c7] = nota;
-            c7++;
+            posic=c[mes-1];
+            c7[posic] = nota;
+            c[mes-1]++;
         }
         if(mes == 6){
-            notas[5][c6] = nota;
-            c6++;
+            posic=c[mes-1];
+            c6[posic] = nota;
+            c[mes-1]++;
         }
         if(mes == 5){
-            notas[4][c5] = nota;
-            c5++;
+            posic=c[mes-1];
+            c5[posic] = nota;
+            c[mes-1]++;
         }
         if(mes == 4){
-            notas[3][c4] = nota;
-            c4++;
+            posic=c[mes-1];
+            c4[posic] = nota;
+            c[mes-1]++;
         }
         if(mes == 3){
-            notas[2][c3] = nota;
-            c3++;
+            posic=c[mes-1];
+            c3[posic] = nota;
+            c[mes-1]++;
         }
         if(mes == 2){
-            notas[1][c2] = nota;
-            c2++;
+            posic=c[mes-1];
+            c2[posic] = nota;
+            c[mes-1]++;
         }
         if(mes == 1){
-            notas[0][c1] = nota;
-            c1++;
+            posic=c[mes-1];
+            c1[posic] = nota;
+            c[mes-1]++;
         }
     }
 
+    selectionSort(c7,c[6]);
+    selectionSort(c6,c[5]);
+    selectionSort(c5,c[4]);
+    selectionSort(c4,c[3]);
+    selectionSort(c3,c[2]);
+    selectionSort(c2,c[1]);
+    selectionSort(c1,c[0]);
 
-    for(i=0;i<c7;i++){
-        fprintf(text2,"%d\n",notas[6][i]);
+    for(i=0;i<c[6];i++){
+        fprintf(text2,"mes7: %d\n",c7[i]);
     }
-    for(i=0;i<c6;i++){
-        fprintf(text2,"%d\n",notas[5][i]);
+    for(i=0;i<c[5];i++){
+        fprintf(text2,"mes6: %d\n",c6[i]);
     }
-    for(i=0;i<c5;i++){
-        fprintf(text2,"%d\n",notas[4][i]);
+    for(i=0;i<c[4];i++){
+        fprintf(text2,"mes5: %d\n",c5[i]);
     }
-    for(i=0;i<c4;i++){
-        fprintf(text2,"%d\n",notas[3][i]);
+    for(i=0;i<c[3];i++){
+        fprintf(text2,"mes4: %d\n",c4[i]);
     }
-    for(i=0;i<c3;i++){
-        fprintf(text2,"%d\n",notas[2][i]);
+    for(i=0;i<c[2];i++){
+        fprintf(text2,"mes3: %d\n",c3[i]);
     }
-    for(i=0;i<c2;i++){
-        fprintf(text2,"%d\n",notas[1][i]);
+    for(i=0;i<c[1];i++){
+        fprintf(text2,"mes2: %d\n",c2[i]);
     }
-    for(i=0;i<c1;i++){
-        fprintf(text2,"%d\n",notas[0][i]);
+    for(i=0;i<c[0];i++){
+        fprintf(text2,"mes1: %d\n",c1[i]);
     }
 
 
@@ -93,4 +103,25 @@ int main(){
 
 
     return 0;
+}
+
+void selectionSort(int vet[], int tam){
+    int i, min, aux , j;
+    for(i=0; i<tam; i++){
+        //Acha posicao do menor elemento a partir de i:
+        min = smallerIndex(vet, tam, i);
+        aux = vet[i];
+        vet[i] = vet[min];
+        vet[min] = aux;
+    }
+}
+
+int smallerIndex(int vet[], int tam, int ini){
+    int min = ini, j;
+    for(j=ini+1; j<tam; j++){
+        if(vet[min] > vet[j]){
+            min = j;
+        }
+    }
+    return min;
 }
