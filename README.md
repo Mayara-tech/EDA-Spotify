@@ -1,9 +1,10 @@
-# Aplicação de Algoritmos de Busca e Ordenação em Análises de Avaliações do Aplicativo Spotify.
+## Aplicação de Algoritmos de Busca e Ordenação em Análises de Avaliações do Aplicativo Spotify.
 
-## Universidade de Brasília - Faculdade do Gama
-### Engenharia de Software
+### Universidade de Brasília - Faculdade do Gama
 
-Disciplina: Estrutura de dados e algoritmos
+Engenharia de Software
+
+Disciplina: Estrutura de dados e Algoritmos
 
 Professor: Dr. Nilton Correia da Silva
 
@@ -18,6 +19,5 @@ Matricula   | Nome
 190129344 | Paulo Vinicius Pinheiro do Nascimento
 202017263 | Vinicius de Oliveira Santos
 
----
 
 
