@@ -33,9 +33,9 @@ int main(){
 
 
 //ABRINDO OS ARQUIVOS   
-    text1 = fopen("Planilha Dados Filtrados.csv", "r");
-    text2 = fopen("Dados_ordenados.csv","w");
-    text3 = fopen("Dados_grafico.csv","w");
+    text1 = fopen("./dados/Planilha Dados Filtrados.csv", "r");
+    text2 = fopen("./dados/Dados_ordenados.csv","w");
+    text3 = fopen("./dados/Dados_grafico.csv","w");
 
 //VERIFICANDO SE OS ARQUIVOS FORAM ABERTOS CORRETAMENTE
 
