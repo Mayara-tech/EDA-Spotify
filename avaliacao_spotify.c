@@ -209,7 +209,7 @@ void selectionSort(int vet[], int tam){
 int smallerIndex(int vet[], int tam, int ini){
     int min = ini, j;
     for(j=ini+1; j<tam; j++){
-        if(vet[min] > vet[j]){
+        if(vet[min] < vet[j]){
             min = j;
         }
     }
