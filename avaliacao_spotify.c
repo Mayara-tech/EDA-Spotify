@@ -33,9 +33,9 @@ int main(){
 
 
 //ABRINDO OS ARQUIVOS   
-    text1 = fopen("./dados/Planilha Dados Filtrados.csv", "r");
-    text2 = fopen("./dados/Dados_ordenados.csv","w");
-    text3 = fopen("./dados/Dados_grafico.csv","w");
+    text1 = fopen("Planilha Dados Filtrados.csv", "r");
+    text2 = fopen("Dados_ordenados.csv","w");
+    text3 = fopen("Dados_grafico.csv","w");
 
 //VERIFICANDO SE OS ARQUIVOS FORAM ABERTOS CORRETAMENTE
 
@@ -196,22 +196,22 @@ int main(){
 //FUNÇÃO DE ORDENAÇÃO SELECTIONSORT
 
 void selectionSort(int vet[], int tam){
-    int i, min, aux , j;
+    int i, max, aux , j;
     for(i=0; i<tam; i++){
-        //Acha posicao do menor elemento a partir de i:
-        min = smallerIndex(vet, tam, i);
+        //Acha posicao do maior elemento a partir de i:
+        max = biggerIndex(vet, tam, i);
         aux = vet[i];
-        vet[i] = vet[min];
-        vet[min] = aux;
+        vet[i] = vet[max];
+        vet[max] = aux;
     }
 }
-//FUNÇÃO PARA ACHAR MENOR POSIÇÃO
-int smallerIndex(int vet[], int tam, int ini){
-    int min = ini, j;
+//FUNÇÃO PARA ACHAR MAIOR POSIÇÃO
+    int biggerIndex(int vet[], int tam, int ini){
+    int max = ini, j;
     for(j=ini+1; j<tam; j++){
-        if(vet[min] < vet[j]){
-            min = j;
+        if(vet[max] < vet[j]){
+            max = j;
         }
     }
-    return min;
+    return max;
 }
