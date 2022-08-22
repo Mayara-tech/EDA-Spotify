@@ -157,7 +157,7 @@ int main(){
         fprintf(text2,"2022_01,%d\n",c1[i]);
     }
     
-    fprintf(text3,"Time_submitted,Avaliacao_Media\n");
+    fprintf(text3,"Meses,Avaliacao_Media\n");
     
 //COPIANDO AS MEDIAS MENSAIS ORDENADAS PARA O ARQUIVO DE DADOS GRAFICOS  
 
