@@ -15,6 +15,7 @@ Arthur D'Assumpção */
 void selectionSort(int vet[], int tam);
 int smallerIndex(int vet[], int tam, int ini);
 
+
 int main(){
 
 // DEFININDO VARIAVEIS
@@ -29,6 +30,8 @@ int main(){
     float mediames[]={0,0,0,0,0,0,0};
     clock_t start_t,end_t;
     double final_t;
+
+//FUNÇÃO DE INÍCIO PARA O CÁLCULO DO TEMPO DE EXECUÇÃO DO PROGRAMA    
     start_t = clock();
 
 
@@ -133,25 +136,25 @@ int main(){
 //COPIANDO E ORGANIZANDO OS DADOS DE ACORDO COM O MES NO ARQUIVO DE DADOS ORDENADOS  
 
     for(i=0;i<c[6];i++){
-        fprintf(text2,"mes7: %d\n",c7[i]);
+        fprintf(text2,"2022_07,%d\n",c7[i]);
     }
     for(i=0;i<c[5];i++){
-        fprintf(text2,"mes6: %d\n",c6[i]);
+        fprintf(text2,"2022_06,%d\n",c6[i]);
     }
     for(i=0;i<c[4];i++){
-        fprintf(text2,"mes5: %d\n",c5[i]);
+        fprintf(text2,"2022_05,%d\n",c5[i]);
     }
     for(i=0;i<c[3];i++){
-        fprintf(text2,"mes4: %d\n",c4[i]);
+        fprintf(text2,"2022_04,%d\n",c4[i]);
     }
     for(i=0;i<c[2];i++){
-        fprintf(text2,"mes3: %d\n",c3[i]);
+        fprintf(text2,"2022_03,%d\n",c3[i]);
     }
     for(i=0;i<c[1];i++){
-        fprintf(text2,"mes2: %d\n",c2[i]);
+        fprintf(text2,"2022_02,%d\n",c2[i]);
     }
     for(i=0;i<c[0];i++){
-        fprintf(text2,"mes1: %d\n",c1[i]);
+        fprintf(text2,"2022_01,%d\n",c1[i]);
     }
     
     fprintf(text3,"Time_submitted,Avaliacao_Media\n");
@@ -193,8 +196,8 @@ int main(){
 
     return 0;
 }
-//FUNÇÃO DE ORDENAÇÃO SELECTIONSORT
 
+//FUNÇÃO DE ORDENAÇÃO SELECTIONSORT
 void selectionSort(int vet[], int tam){
     int i, max, aux , j;
     for(i=0; i<tam; i++){
