@@ -28,11 +28,8 @@ int main(){
     float soma[]={0,0,0,0,0,0,0};
     float media[]={0,0,0,0,0,0,0};
     float mediames[]={0,0,0,0,0,0,0};
-    clock_t start_t,end_t;
-    double final_t;
-
-//FUNÇÃO DE INÍCIO PARA O CÁLCULO DO TEMPO DE EXECUÇÃO DO PROGRAMA    
-    start_t = clock();
+    clock_t startmedia_t,endmedia_t,startselection_t,endselection_t;
+    double resultmedia_t,resultselection_t;
 
 
 //ABRINDO OS ARQUIVOS   
@@ -114,12 +111,28 @@ int main(){
             c[mes-1]++;
         }
     }
+
+//FUNÇÃO DE INÍCIO PARA O CÁLCULO DO TEMPO DE EXECUÇÃO DA MÉDIA    
+    startmedia_t = clock();
+
     for(i=0;i<7;i++){
         media[i] = soma[i]/c[i];
     }
+
+//FUNCAO QUE GRAVA O VALOR DA MEDIA AO SEU RESPECTIVO MES
     for(i=0;i<7;i++){
         mediames[i] = media[i];
     }
+
+//FUNÇAO PARA MEDIR O TEMPO DE PROCESSAMENTO DA MEDIA
+    endmedia_t = clock();
+    resultmedia_t = (double)(endmedia_t - startmedia_t) / CLOCKS_PER_SEC;
+    printf("Tempo de processamento do calculo da media: %f\n",resultmedia_t);
+    
+
+
+//FUNCAO PARA MEDIR O TEMPO DE PROCESSAMENTO DO ALGORITMO DE ORDENACAO
+    startselection_t = clock();
 
 // APLICANDO O SELECTIONSORT PARA ORDENAR AS NOTAS DE CADA MES
     selectionSort(c7,c[6]);
@@ -132,6 +145,13 @@ int main(){
 
 // APLICANDO O SELECTIONSORT PARA ORDENAR A MEDIA MENSAL DAS AVALIAÇÕES
     selectionSort(media,7);
+
+
+//FUNÇAO PARA MEDIR O TEMPO DE PROCESSAMENTO DA MEDIA
+    endselection_t = clock();
+    resultselection_t = (double)(endselection_t - startselection_t) / CLOCKS_PER_SEC;
+    printf("Tempo de processamento do algoritmo de ordenacao: %f\n",resultselection_t);
+
 
 //COPIANDO E ORGANIZANDO OS DADOS DE ACORDO COM O MES NO ARQUIVO DE DADOS ORDENADOS  
 
@@ -187,12 +207,6 @@ int main(){
 //FECHANDO ARQUIVOS 
     fclose(text1);
     fclose(text2);
-
-//FUNÇAO PARA MEDIR O TEMPO DE PROCESSAMENTO DO PROGRAMA 
-
-    end_t = clock();
-    final_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("Tempo de processamento do programa: %f\n",final_t);
 
     return 0;
 }
