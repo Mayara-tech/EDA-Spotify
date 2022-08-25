@@ -207,6 +207,7 @@ int main(){
 //FECHANDO ARQUIVOS 
     fclose(text1);
     fclose(text2);
+    fclose(text3);
 
     return 0;
 }
